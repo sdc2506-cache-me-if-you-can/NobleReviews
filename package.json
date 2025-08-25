@@ -1,0 +1,22 @@
+{
+  "name": "noblereviews",
+  "version": "1.0.0",
+  "description": "endpoint for the reviews part of the API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdc2506-cache-me-if-you-can/NobleReviews.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdc2506-cache-me-if-you-can/NobleReviews/issues"
+  },
+  "homepage": "https://github.com/sdc2506-cache-me-if-you-can/NobleReviews#readme",
+  "dependencies": {
+    "mongoose": "^8.18.0"
+  }
+}
