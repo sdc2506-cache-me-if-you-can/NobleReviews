@@ -4,12 +4,13 @@
   "description": "endpoint for the reviews part of the API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "populate_db": "mysql --local-infile=1 -p reviews_db < ./server/schema.sql",
+    "server-dev": "npx nodemon --watch server  server/index.js",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sdc2506-cache-me-if-you-can/NobleReviews.git",
-    "populate_db": "mysql --local-infile=1 -p reviews_db < ./server/schema.sql"
+    "url": "git+https://github.com/sdc2506-cache-me-if-you-can/NobleReviews.git"
   },
   "author": "",
   "license": "ISC",
