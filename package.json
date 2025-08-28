@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sdc2506-cache-me-if-you-can/NobleReviews.git"
+    "url": "git+https://github.com/sdc2506-cache-me-if-you-can/NobleReviews.git",
+    "populate_db": "mysql --local-infile=1 -p reviews_db < ./server/schema.sql"
   },
   "author": "",
   "license": "ISC",
@@ -19,8 +20,7 @@
   "dependencies": {
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "mongoose": "^8.18.0",
-    "mysql": "^2.18.1",
-    "mysql2": "^3.14.3"
+    "mysql2": "^3.14.3",
+    "nodemon": "^3.1.10"
   }
 }

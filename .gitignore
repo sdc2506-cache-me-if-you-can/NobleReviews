@@ -1,11 +1,4 @@
 /node_modules
-# ignore everthing in client/dist folder
-/client/dist/*
-# except for index.html and styles.css
-!/client/dist
-!/client/dist/index.html
-!/client/dist/styles.css
 # ignore .env file
-.envroot
-
-/data
+/env
+package-lock.json
