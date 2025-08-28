@@ -4,7 +4,9 @@
   "description": "endpoint for the reviews part of the API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "populate_db": "mysql --local-infile=1 -p reviews_db < ./server/schema.sql",
+    "server-dev": "npx nodemon --watch server  server/index.js",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +21,7 @@
   "dependencies": {
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "mongoose": "^8.18.0",
-    "mysql": "^2.18.1",
-    "mysql2": "^3.14.3"
+    "mysql2": "^3.14.3",
+    "nodemon": "^3.1.10"
   }
 }
