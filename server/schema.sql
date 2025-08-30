@@ -16,14 +16,14 @@ CREATE TABLE reviews (
     id INT UNSIGNED NOT NULL PRIMARY KEY,
     product_id INT UNSIGNED NOT NULL,
     rating INT,
-    date TIMESTAMP,
+    date BIGINT,
     summary VARCHAR(255),
-    body TEXT,
+    body VARCHAR(255),
     recommend VARCHAR(10),
-    reported VARCHAR(10),
+    reported VARCHAR(10) DEFAULT "false",
     reviewer_name VARCHAR(100),
     reviewer_email VARCHAR(100),
-    response TEXT DEFAULT NULL,
+    response VARCHAR(255) DEFAULT NULL,
     helpfulness INT DEFAULT NULL,
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
@@ -70,16 +70,7 @@ INTO TABLE reviews
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(id, product_id, rating, @date_raw, summary, body,
- @recommend_raw, reviewer_name, reviewer_email, @response_raw,
- @helpfulness, @reported_raw)
-SET
-  helpfulness = NULLIF(@helpfulness,'null'),
-  date = FROM_UNIXTIME(LEAST(@date_raw, 2147483647)),
-  response = NULLIF(@response_raw,''),
-  recommend = CASE WHEN LOWER(TRIM(@recommend_raw)) IN ('true') THEN 1 ELSE 0 END,
-  reported = CASE WHEN LOWER(TRIM(@reported_raw))  IN ('true') THEN 1 ELSE 0 END;
+IGNORE 1 ROWS;
 
 LOAD DATA LOCAL INFILE '/mnt/c/Users/redre/Downloads/characteristic_reviews.csv'
 INTO TABLE characteristic_reviews

@@ -17,4 +17,4 @@ Uses a MySQL DMS to get reviews, review meta data, and post new reviews
 
 * Customize schema.sql to route to the correct file locations for your review data
 * Run `npm run populate_db` to populate the database with the correct data
-* Run `npm run server-dev` to start the server
+* Run `npm start` to start the server
