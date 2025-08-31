@@ -11,7 +11,7 @@ const getReviews = async (req, res) => {
     const sort = req.query.sort || '';
     const product_id = req.query.product_id;
 
-    let query = 'SELECT id AS review_id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness FROM reviews WHERE product_id=? AND reported="false"';
+    let query = 'SELECT id, rating, summary, recommend, response, body, date, reviewer_name, helpfulness FROM reviews WHERE product_id=? AND reported="false"';
     if (sort === 'relevant' || sort === '') {
       query += ' ORDER BY helpfulness DESC, date DESC';
     } else if (sort === 'helpful') {
