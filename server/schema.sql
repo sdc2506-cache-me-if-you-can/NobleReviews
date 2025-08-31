@@ -51,35 +51,35 @@ CREATE TABLE reviews_photos (
     FOREIGN KEY (review_id) REFERENCES reviews(id)
 );
 
-LOAD DATA LOCAL INFILE './data/product.csv'
+LOAD DATA INFILE '/var/lib/mysql-files/product.csv'
 INTO TABLE products
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE './data/characteristics.csv'
+LOAD DATA LOCAL INFILE '/var/lib/mysql-files/characteristics.csv'
 INTO TABLE characteristics
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE './data/reviews.csv'
+LOAD DATA LOCAL INFILE '/var/lib/mysql-files/reviews.csv'
 INTO TABLE reviews
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE './data/characteristic_reviews.csv'
+LOAD DATA LOCAL INFILE '/var/lib/mysql-files/characteristic_reviews.csv'
 INTO TABLE characteristic_reviews
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE './data/reviews_photos.csv'
+LOAD DATA LOCAL INFILE '/var/lib/mysql-files/reviews_photos.csv'
 INTO TABLE reviews_photos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'

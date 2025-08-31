@@ -12,7 +12,7 @@ export const options = {
 };
 
 export default function () {
-  const response = http.get(`http://localhost:3000/reviews/meta?product_id=${randomIntBetween(1, 10000)}`); // Your API endpoint
+  const response = http.get(`http://54.215.104.210:3000/reviews?product_id=${randomIntBetween(1, 10000)}`); // Your API endpoint
   check(response, {
     'status is 200': (r) => r.status === 200,
     'response time is acceptable': (r) => r.timings.duration < 500,
