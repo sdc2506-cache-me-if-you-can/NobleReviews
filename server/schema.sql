@@ -7,7 +7,7 @@ CREATE TABLE products (
   id INT UNSIGNED NOT NULL PRIMARY KEY,
   name VARCHAR(100),
   slogan VARCHAR(255),
-  description VARCHAR(255),
+  description VARCHAR(500),
   category VARCHAR(50),
   default_price INT
 );
@@ -18,7 +18,7 @@ CREATE TABLE reviews (
     rating INT,
     date BIGINT,
     summary VARCHAR(255),
-    body VARCHAR(255),
+    body VARCHAR(500),
     recommend VARCHAR(10),
     reported VARCHAR(10) DEFAULT "false",
     reviewer_name VARCHAR(100),
@@ -58,28 +58,28 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE '/var/lib/mysql-files/characteristics.csv'
+LOAD DATA INFILE '/var/lib/mysql-files/characteristics.csv'
 INTO TABLE characteristics
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE '/var/lib/mysql-files/reviews.csv'
+LOAD DATA INFILE '/var/lib/mysql-files/reviews.csv'
 INTO TABLE reviews
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE '/var/lib/mysql-files/characteristic_reviews.csv'
+LOAD DATA INFILE '/var/lib/mysql-files/characteristic_reviews.csv'
 INTO TABLE characteristic_reviews
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
-LOAD DATA LOCAL INFILE '/var/lib/mysql-files/reviews_photos.csv'
+LOAD DATA INFILE '/var/lib/mysql-files/reviews_photos.csv'
 INTO TABLE reviews_photos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
