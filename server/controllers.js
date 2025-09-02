@@ -57,11 +57,8 @@ const getReviewsMeta = async (req, res) => {
     const product_id = req.query.product_id;
 
     // Fetching from the database
-    let recommendQuery1 = 'SELECT recommend, id FROM reviews WHERE product_id=? AND recommend="false" AND reported="false"';
-    const recommendResults1 = await db.query(recommendQuery1, [product_id]);
-
-    let recommendQuery2 = 'SELECT recommend FROM reviews WHERE product_id=? AND reported="false"';
-    const recommendResults2 = await db.query(recommendQuery2, [product_id]);
+    let recommendQuery = 'SELECT recommend, id FROM reviews WHERE product_id=? AND recommend="false" AND reported="false"';
+    const recommendResults = await db.query(recommendQuery, [product_id]);
 
     let ratingsQuery = 'SELECT rating, recommend FROM reviews WHERE product_id=? AND reported="false"';
     const ratingsResults = await db.query(ratingsQuery, [product_id]);
@@ -79,7 +76,7 @@ const getReviewsMeta = async (req, res) => {
     }
 
     let charReviews = {};
-    for (const review of recommendResults1[0]) {
+    for (const review of recommendResults[0]) {
       let charReviewsQuery = 'SELECT value, characteristic_id FROM characteristic_reviews WHERE review_id=?';
       const charReviewsResults = await db.query(charReviewsQuery, [review.id]);
       for (const charReview of charReviewsResults[0]) {
@@ -127,8 +124,8 @@ const getReviewsMeta = async (req, res) => {
       product_id: product_id.toString(),
       ratings: ratings,
       recommend: {
-        true: (ratingsResults[0].length - recommendResults1[0].length).toString(),
-        false: recommendResults1[0].length.toString()
+        true: (ratingsResults[0].length - recommendResults[0].length).toString(),
+        false: recommendResults[0].length.toString()
       },
       characteristics: formattedChars
     });
