@@ -20,7 +20,7 @@ const getReviews = async (req, res) => {
       query += ' ORDER BY date DESC';
     }
     query += ' LIMIT ? OFFSET ?';
-    const result = await db.query(query, [product_id, count, (page - 1) * count]);
+    const result = await db.query(query, [product_id, count.parseInt(), (page - 1) * count]);
 
     // Adding the review photos for each review in the selection
     for (var i = 0; i < result[0].length; i++) {
